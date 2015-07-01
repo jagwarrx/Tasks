@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My First Webpage</title>
+</head>
+
+<body>
+
+
+<div style="background:url(http://www.html.am/images/backgrounds/background-image-3.gif) center center no-repeat;width:700px;height:300px;color:black;font-size:18px;border:1px solid #ccc;padding:5px;">
+
+<style>
+h1 {
+    color:black;
+    font-family:verdana;
+    font-size:300%;
+}
+p  {
+    color:blue;
+    font-family:courier;
+    font-size:160%;
+}
+
+
+
+</style>
+
+
+<script>
+function change(num) {
+    var pic;
+    if (num == 0) {
+        document.getElementById("button1").style.backgroundColor = '#FFFF00';
+    } else {
+        document.getElementById("button2").style.backgroundColor = '#FFFF00';
+    }
+
+}
+</script>
+
+
+  <h1>Hi ! This is my first webpage.</h1>
+  <p> See these squares below? Click on one and see what happens to the other :D</p>
+<br>
+<input type="button" button name="button1" style="background-color:blue; display:inline-block; height:300px; width:300px" onclick="change(1)" value="The statment to the right is false" onmousedown="this.style.background='green'" onmouseup="this.style.background='blue'" />
+<input type="button" button name="button2" style="background-color:red; display:inline-block; height:300px; width:300px" onclick="change(0)" value="The statment to the left is true" onmousedown="this.style.background='green'" onmouseup="this.style.background='red'" />
+
+<hr />
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<marquee><font color=”pink”> Newsflash: </font>
+<font color=”blue”> Hari just created a webpage! </font></marquee>
+</body>
+</html>

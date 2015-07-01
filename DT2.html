@@ -1,0 +1,26 @@
+<html>
+<body>
+
+<form action="action_page.php">
+Enter Value:<br>
+<input type="text" name="Value" onclick=myFunction(this)>
+<br><br>
+<input type="submit" value="Submit">
+</form>
+
+<script>
+function myFunction() 
+ {
+    var div = document.createElement('div');
+    <div style="height: getheight(this); margin-top:175px; width:100px;           background:blue;" /><br/> 
+  }
+
+ function getheight(x, input)
+  { 
+    height= (input/x)*100;
+    return height;
+   }
+</script>
+
+</body>
+</html>

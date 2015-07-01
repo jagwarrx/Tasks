@@ -1,0 +1,92 @@
+<! DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<title>Graph</title>
+
+</head>
+<style type="text/css">
+   	
+   #mycanvas
+   {
+       border-left:solid 1px;
+       border-bottom:solid 1px; 
+   }
+
+</style>
+<body>
+	 
+
+     <canvas id="mycanvas" width="800" height="400" >
+     </canvas><br><br><br>
+     
+     <input type="button" value="click to plot" onclick="popup()" />
+     <input type="button" value="click to sort" onclick="sort()" /> 
+     <script type="text/javascript">
+    
+     var input,hgt,ratio,small,widthspace=20,startheight,width=20,textstart=20;
+     var canvas=document.getElementById("mycanvas");
+     var ctx=canvas.getContext("2d");
+     var c=canvas.getContext("2d");
+     var rectangles=[];
+     var heights=[];
+   
+    function popup()
+     {
+         input=prompt("enter value you want to plot");
+         calcheight();
+      }
+      
+      function calcheight()
+      {  
+        if(rectangles.length==0)   
+           {
+            hgt=20;
+            rectangles.push(input);
+            heights.push(hgt);
+            }
+                         
+            
+         else
+         {
+            ratio=input/rectangles[0];
+            hgt=20*ratio;
+            rectangles.push(input);
+            heights.push(hgt);
+          }
+
+          constructrec();
+           }
+          
+     function constructrec()  
+      {  
+         startheight=400-hgt;
+         ctx.fillStyle="lightgreen"; 
+         ctx.fillRect(widthspace,startheight,width,hgt);
+         c.fillStyle="black";
+         c.fillText(input,textstart,20);
+         widthspace+=40;
+         textstart+=40;  
+        } 
+      
+      function sort()
+      {   
+          rectangles.sort(function(a,b) {return a-b} );
+          heights.sort(function(a,b) {return a-b} );        
+          widthspace=20;textstart=20;
+          ctx.clearRect(0,0,canvas.width,canvas.height);
+          for(var i=0;i<heights.length;i++)
+          {
+              hgt=heights[i];
+              input=rectangles[i];
+              constructrec();
+          }
+      }
+
+
+  </script>   
+
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<! DOCTYPE html>
+<html>
+<head>
+	
+	<title>Graph</title>
+</head>
+<style type="text/css">
+   	
+   #mycanvas{
+       border-left:solid 1px;
+       border-bottom:solid 1px; 
+
+   }
+
+</style>
+<body>
+	 
+
+     <canvas id="mycanvas" width="1200" height="600" >
+     </canvas><br>
+     
+     
+     <input type="button" style="background-color: lightgreen; display:inline-block; height:30px; width:60px" onclick="popup();" value="PLOT"; />&nbsp; 
+     
+     <input type="button" style="background-color: lightblue; display:inline-block; height:30px; width:60px" onclick="sort();" value="SORT"; />&nbsp; 
+  
+  
+
+<script type="text/javascript">
+    
+     var input,hgt,small,widthspace=40,startheight,width=40,textstart=40;
+     var canvas=document.getElementById("mycanvas");
+     var ctx=canvas.getContext("2d");
+     var c=canvas.getContext("2d");
+     var rectangles=[];
+     var heights=[];
+
+     function popup()
+     {
+     	   
+         input=prompt("Enter Value: ");
+         calcheight();
+      }
+      
+      function calcheight()
+      {  
+         
+
+         if(rectangles.length==0)
+           
+           {
+            hgt=50;
+            rectangles.push(input);
+            heights.push(hgt);
+            }
+                         
+            
+         else
+         {
+            hgt=50*input/rectangles[0];
+            rectangles.push(input);
+            heights.push(hgt);
+          }
+
+          constructrec();
+       }
+          
+     function constructrec()  
+
+      {  
+         startheight=600-hgt;
+         ctx.fillStyle=getRandomColor(); 
+         ctx.fillRect(widthspace,startheight,width,hgt);
+         c.fillStyle="black";
+         c.fillText(input,textstart+10,600-hgt-10);
+         widthspace+=80;
+         textstart+=80;  
+     } 
+      
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+    }
+
+
+      function sort()
+      {   
+          rectangles.sort(function(a,b) {return a-b} );
+          heights.sort(function(a,b) {return a-b} );        
+          widthspace=40;textstart=40;
+          ctx.clearRect(0,0,canvas.width,canvas.height);
+          for(var i=0;i<heights.length;i++)
+          {
+              hgt=heights[i];
+              input=rectangles[i];
+              constructrec();
+          }
+      }
+
+
+  </script>   
+
+
+</body>
+</html>

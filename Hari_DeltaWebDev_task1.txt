@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My First Webpage</title>
+</head>
+
+<body>
+
+
+<div style="background:url(http://www.html.am/images/backgrounds/background-image-3.gif) center center no-repeat;width:700px;height:300px;color:black;font-size:18px;border:1px solid #ccc;padding:5px;">
+
+<style>
+ h1 {
+    color:black;
+    font-family:verdana;
+    font-size:300%;
+    }
+
+ p  {
+    color:blue;
+    font-family:courier;
+    font-size:160%;
+    }
+
+</style>
+
+  <h1>Hi ! This is my first webpage.</h1>
+  <p> See these squares below? Click on one and see what happens to the other :D</p>
+  <br>
+
+
+<input type="button" id="Button1" style="background-color: red; display:inline-block; height:300px; width:300px" onclick="ChangeColor(this);" value="Other button's statment is False"  />&nbsp; 
+<input type="button" id="Button2" style="background-color: blue; display:inline-block; height:300px; width:300px"  onclick="ChangeColor(this);" value="Other button's statment is True"/>
+
+
+
+<script language="javascript" type="text/javascript">
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+    }
+function ChangeColor(inputObj) {
+     if (inputObj.value == "Other button's statment is False") {                
+      document.getElementById("Button2").style.backgroundColor = getRandomColor();
+        }
+   else {             
+       document.getElementById("Button1").style.backgroundColor = getRandomColor();
+        }
+     }
+function RandomColor(inputObj) {
+     if (inputObj.value == "Other button's statment is False") {                
+      document.getElementById("Button1").style.backgroundColor = getRandomColor();
+        }
+   else {             
+       document.getElementById("Button2").style.backgroundColor = getRandomColor();
+        }
+     }
+
+
+
+    </script>
+
+
+<hr />
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<font color=”pink”> Newsflash: </font>
+<font color=”blue”> Hari just created a webpage! </font>
+
+</body>
+</html>
